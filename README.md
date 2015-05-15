@@ -3,6 +3,8 @@ SlackIt
 
 A Linux deamon that tells you when there are new messages on Slack
 
+![Alt text](http://i.imgur.com/kpic5N1.png "Optional Title")
+
 Configure
 ---
 
