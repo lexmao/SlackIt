@@ -1,6 +1,6 @@
 ### SCRIPT MAIN CONFIGURATION | EDIT HERE ###
 
-slack_team_token = "" 	# token available here: https://api.slack.com/tokens
+slack_team_token = "" 	# token available here: https://api.slack.com/web at the bottom of the page
 
 log_file = "/var/log/slackify.log"
 channels = "dev"													# channels you want to watch, separated by commas (at the moment only one channel works)
