@@ -30,6 +30,15 @@ class Connect():
 		return users
 
 
+	def get_name_from_user_code(self,code):
+
+		users = self.get_list_of_users_from_team()
+
+		for i in range(0,len(users)):
+			if users["members"][i]["id"] == code:
+				return users["members"][i]["name"]
+
+
 	def retrieve_channels_from_slack_team(self):
 
 		GET_request = "https://slack.com/api/channels.list?token=%s&pretty=1" % (slack_team_token)
@@ -111,7 +120,9 @@ class Connect():
 			last_message = history["messages"][0]["text"]
 			last_author = history["messages"][0]["user"]
 
-			current_notify["author"] = last_author
+			name = self.get_name_from_user_code(last_author)
+
+			current_notify["author"] = name
 
 			title = "You have a new message on '%s' Slack channel (from: %s)" % (channels,current_notify["author"])
 
@@ -123,7 +134,9 @@ class Connect():
 			last_message = history["messages"][0]["text"]
 			last_author = history["messages"][0]["user"]
 
-			current_notify["author"] = last_author
+			name = self.get_name_from_user_code(last_author)
+
+			current_notify["author"] = name
 
 			title = "You have %s new messages on %s Slack channel" % (count,channels)
 			description = "Last message from %s : %s " % (current_notify["author"],last_message)
