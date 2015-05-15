@@ -10,6 +10,18 @@ open config.py file and set the right access token at this line:
 ```bash
 slack_team_token = "" # token available here: https://api.slack.com/web at the bottom of the page
 ```
+in the same file you'll find some variable for system configurations
+```bash
+log_file = "/var/log/slackify.log"
+channels = "dev"													      # channels you want to watch, separated by commas)
+notification_time_appear = 10										# notification display time (in seconds)
+check_notification_time = 20
+```
+log_file: log file path for the system monitoring
+channels: a list of channels to check (at the moment only one is supported)
+notification_time_appear: how much time the notification should stay visible
+check_notification_time: when the deamon have to check new messages on Slack
+
 
 Start, stop or restart deamon
 ---
