@@ -10,7 +10,7 @@ open config.py file and set the right access token at this line:
 ```bash
 slack_team_token = "" # token available here: https://api.slack.com/web at the bottom of the page
 ```
-in the same file you'll find some variable for system configurations
+in the same file you'll find some variables to set
 ```bash
 log_file = "/var/log/slackify.log"
 channels = "dev"													      # channels you want to watch, separated by commas)
