@@ -8,13 +8,13 @@ Configure
 
 open config.py file and set the right access token at this line:
 ```bash
-slack_team_token = "" # token available here: https://api.slack.com/web at the bottom of the page
+slack_team_token = "" # token available here: https://api.slack.com/web
 ```
 in the same file you'll find some variables to set
 ```bash
 log_file = "/var/log/slackify.log"
-channels = "dev"													      # channels you want to watch, separated by commas)
-notification_time_appear = 10										# notification display time (in seconds)
+channels = "dev"													      
+notification_time_appear = 10										
 check_notification_time = 20
 ```
 * log_file: log file path for the system monitoring
