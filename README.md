@@ -1,9 +1,9 @@
-SlackIt
+SlackIt ![Alt text](https://travis-ci.org/gsalvatori/SlackIt.svg?branch=master)
 ---
 
 A Linux deamon that tells you when there are new messages on Slack
 
-![Alt text](http://i.imgur.com/kpic5N1.png "Optional Title")
+![Alt text](http://i.imgur.com/kpic5N1.png)
 
 Configure
 ---
