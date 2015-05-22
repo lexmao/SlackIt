@@ -14,7 +14,7 @@ slack_team_token = "" # token available here: https://api.slack.com/web
 ```
 in the same file you'll find some variables to set
 ```bash
-log_file = "/var/log/slackify.log"
+log_file = "/var/log/slackit.log"
 channels = "dev"													      
 notification_time_appear = 10										
 check_notification_time = 20
