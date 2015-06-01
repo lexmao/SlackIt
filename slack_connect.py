@@ -174,7 +174,6 @@ class Connect():
 
 			last_timestamp["ts"] = split_ts[0]
 
-			print last_timestamp
 
 
 
@@ -193,8 +192,3 @@ class Connect():
 
 		self.get_last_timestamp_from_history()
 		self.fetch_content_from_history()
-
-		print current_notify
-		print current_notify["description"]
-	
-	
