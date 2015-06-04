@@ -6,6 +6,8 @@ python:
   - "3.3"
   - "3.4"
   - "nightly"
-
+  
+before_install:
+  - sudo pip install websocket-client
 # command to run tests
 script: "sudo python slackit.py start"
