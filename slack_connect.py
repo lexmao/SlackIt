@@ -74,26 +74,26 @@ class Connect():
 
 	def init_connection_with_websocket(self):
 
-			w_socket = self.get_websocket_url_from_RTM()
-			socket = create_connection(w_socket)
+		w_socket = self.get_websocket_url_from_RTM()
+		socket = create_connection(w_socket)
 
-			while True:
+		while True:
 
-				result = socket.recv()
+			result = socket.recv()
 
-				print result
+			print result
+			
+			# author = result["user"]
+			# text = result["text"]
+			# channel = result["channel"]
 
-				# author = result["user"]
-				# text = result["text"]
-				# channel = result["channel"]
+			# title = "You have a new message from %s (channel: %s )" % (author,channel)
 
-				# title = "You have a new message from %s (channel: %s )" % (author,channel)
+			# current_notify["title"] = title
+			# current_notify["description"] = text
 
-				# current_notify["title"] = title
-				# current_notify["description"] = text
-
-				# notification = Notify()
-				# notification.run_instance()
+			# notification = Notify()
+			# notification.run_instance()
 
 
 
