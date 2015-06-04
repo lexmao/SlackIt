@@ -21,7 +21,6 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-from notify import *
 from slack_connect import *
 from daemon import Daemon
 import time
@@ -45,7 +44,7 @@ if __name__ == "__main__":
         daemon = Start('/var/run/slackify.pid')
         if len(sys.argv) == 2:
                 if 'start' == sys.argv[1]:
-                        daemon.run()
+                        daemon.start()
                 elif 'stop' == sys.argv[1]:
                         daemon.stop()
                 elif 'restart' == sys.argv[1]:

@@ -27,6 +27,8 @@ import string
 import json
 import urllib2
 import time
+import re
+from notify import *
 from registry import *
 from config import *
 from websocket import create_connection
@@ -81,19 +83,21 @@ class Connect():
 
 			result = socket.recv()
 
-			print result
-			
-			# author = result["user"]
-			# text = result["text"]
-			# channel = result["channel"]
+			if "message" in result and "reply_to" not in result and "deleted_ts" not in result:
 
-			# title = "You have a new message from %s (channel: %s )" % (author,channel)
+				matches = re.findall(r'\"(.+?)\"',result)
 
-			# current_notify["title"] = title
-			# current_notify["description"] = text
+				channel = matches[3]
+				author = self.get_name_from_user_code(matches[5])
+				text = matches[7]
 
-			# notification = Notify()
-			# notification.run_instance()
+				title = "You have a new message from %s (channel: %s )" % (author,channel)
+
+				current_notify["title"] = title
+				current_notify["description"] = text
+
+				notification = Notify()
+				notification.run_instance()
 
 
 
