@@ -21,10 +21,10 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-from notify import *
 from slack_connect import *
 from daemon import Daemon
 import time
+from websocket import create_connection
 
 
 class Start(Daemon):
@@ -36,24 +36,7 @@ class Start(Daemon):
             connect = Connect()
             connect.run_instance()
 
-            notify = Notify()
-            notify.run_instance()
-
-
-            # author = connect.get_last_author_from_history()
-            # message = registry["last-message"]
-
-
-            # notifica.set_notify_author(author)
-            # notifica.set_notify_channel("dev")
-            # notifica.set_notify_title("You have a new message on")
-            # notifica.set_notify_description(message)
-
-            # notifica.run_instance()
-
-            # TODO: use schedule python module instead of sleep function
-            time.sleep(check_notification_time)
-
+        ws.close
 
 
 # start SlackIt to pid
