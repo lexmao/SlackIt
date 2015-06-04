@@ -29,8 +29,74 @@ import urllib2
 import time
 from registry import *
 from config import *
+from websocket import create_connection
 
 
 class Connect():
 
+
+	def init_get_response(self,request):
+
+		response = urllib2.urlopen(request)
+		output = json.load(response)
+
+		return output
+
+
+	def get_list_of_users_from_team(self):
+
+		GET_request = "https://slack.com/api/users.list?token=%s&pretty=1" % (slack_team_token)
+
+		users = self.init_get_response(GET_request)
+
+		return users
+
+
+	def get_name_from_user_code(self,code):
+
+		users = self.get_list_of_users_from_team()
+
+		for i in range(0,len(users)):
+			if users["members"][i]["id"] == code:
+				return users["members"][i]["name"]
+
+
+	def get_websocket_url_from_RTM(self):
+
+		url = "https://slack.com/api/rtm.start?token=%s" % (slack_team_token)
+		response = urllib2.urlopen(url)
+		output = json.load(response)
+
+		websocket_url = output["url"]
+
+		return websocket_url
+
+
+	def init_connection_with_websocket(self):
+
+			w_socket = self.get_websocket_url_from_RTM()
+			socket = create_connection(w_socket)
+
+			while True:
+
+				result = socket.recv()
+
+				print result
+
+				# author = result["user"]
+				# text = result["text"]
+				# channel = result["channel"]
+
+				# title = "You have a new message from %s (channel: %s )" % (author,channel)
+
+				# current_notify["title"] = title
+				# current_notify["description"] = text
+
+				# notification = Notify()
+				# notification.run_instance()
+
+
+
 	def run_instance(self):
+
+		self.init_connection_with_websocket()
