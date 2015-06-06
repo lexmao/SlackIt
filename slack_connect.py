@@ -54,6 +54,15 @@ class Connect():
 		return users
 
 
+	def get_channel_name_from_code(self,code):
+
+		GET_request = "https://slack.com/api/channels.info?token=%s&channel=%s" % (slack_team_token,code)
+
+		channel = self.init_get_response(GET_request)
+
+		return channel["channel"]["name"]
+
+
 	def get_name_from_user_code(self,code):
 
 		users = self.get_list_of_users_from_team()
@@ -87,7 +96,7 @@ class Connect():
 
 				matches = re.findall(r'\"(.+?)\"',result)
 
-				channel = matches[3]
+				channel = self.get_channel_name_from_code(matches[3])
 				author = self.get_name_from_user_code(matches[5])
 				text = matches[7]
 
