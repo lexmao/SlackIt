@@ -1,4 +1,4 @@
-SlackIt [![Build Status](http://ci.salvatorigabriele.com/buildStatus/icon?job=slackit)](http://ci.salvatorigabriele.com/job/slackit/)
+SlackIt ![Alt text](http://ci.salvatorigabriele.com/buildStatus/icon?job=slackit)]
 ---
 
 A Linux deamon that tells you when there are new messages on Slack
